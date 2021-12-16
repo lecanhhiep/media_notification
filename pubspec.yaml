@@ -7,14 +7,14 @@ homepage: https://github.com/Zeratyll/flutter_media_notification
 dependencies:
   flutter:
     sdk: flutter
-  meta: ^1.1.6
+  meta: ^1.7.0
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  mockito:
+  mockito: ^5.0.16
 
 # The following section is specific to Flutter.
 flutter:
