@@ -16,14 +16,23 @@ public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler
     private static Registrar registrar;
     private static NotificationPanel nPanel;
     private static MethodChannel channel;
+    private Synth synth;
 
     private MediaNotificationPlugin(Registrar r) {
         registrar = r;
     }
+ /*   private static void setup(PluginCodelabPlugin plugin, BinaryMessenger binaryMessenger) {
+        plugin.channel = new MethodChannel(binaryMessenger, CHANNEL_ID);
+        plugin.channel.setMethodCallHandler(plugin);
+        plugin.synth = new Synth();
+        plugin.synth.start();
+    }*/
 
     @Override
     public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
-        setup(this, flutterPluginBinding.getBinaryMessenger());
+//        setup(this, flutterPluginBinding.getBinaryMessenger());
+        channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), CHANNEL_ID);
+        channel.setMethodCallHandler(this);
     }
 
     /** Plugin registration. */
