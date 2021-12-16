@@ -12,7 +12,7 @@ class MediaNotification {
     _listeners.forEach((event, callback) {
       if (methodCall.method == event) {
         callback();
-        return true;
+       return ;
       }
     });
   }
