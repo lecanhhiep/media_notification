@@ -10,7 +10,6 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.os.Build;
 
-import com.sun.istack.internal.NotNull;
 
 /** MediaNotificationPlugin */
 public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler {
@@ -31,7 +30,7 @@ public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler
     }*/
 
     @Override
-    public void onAttachedToEngine(@NotNull FlutterPluginBinding flutterPluginBinding) {
+    public void onAttachedToEngine( FlutterPluginBinding flutterPluginBinding) {
 //        setup(this, flutterPluginBinding.getBinaryMessenger());
         channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), CHANNEL_ID);
         channel.setMethodCallHandler(this);
@@ -46,7 +45,7 @@ public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler
     }
 
     @Override
-    public void onDetachedFromEngine(@NonNull FlutterPluginBinding binding) {
+    public void onDetachedFromEngine( FlutterPluginBinding binding) {
         channel.setMethodCallHandler(null);
     }
  @Override
