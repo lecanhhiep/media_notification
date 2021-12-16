@@ -8,20 +8,19 @@ import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.content.Context;
 import android.os.Build;
 
 
 /** MediaNotificationPlugin */
 public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler {
     private static final String CHANNEL_ID = "media_notification";
-    private static Registrar registrar;
+
     private static NotificationPanel nPanel;
     private static MethodChannel channel;
+    private static Context context;
    // private Synth synth;
 
-    private MediaNotificationPlugin(Registrar r) {
-        registrar = r;
-    }
  /*   private static void setup(PluginCodelabPlugin plugin, BinaryMessenger binaryMessenger) {
         plugin.channel = new MethodChannel(binaryMessenger, CHANNEL_ID);
         plugin.channel.setMethodCallHandler(plugin);
@@ -32,17 +31,18 @@ public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler
     @Override
     public void onAttachedToEngine( FlutterPluginBinding flutterPluginBinding) {
 //        setup(this, flutterPluginBinding.getBinaryMessenger());
+        context = flutterPluginBinding.getApplicationContext();
         channel = new MethodChannel(flutterPluginBinding.getBinaryMessenger(), CHANNEL_ID);
         channel.setMethodCallHandler(this);
     }
 
     /** Plugin registration. */
-    public static void registerWith(Registrar registrar) {
+  /*  public static void registerWith(Registrar registrar) {
       MediaNotificationPlugin plugin = new MediaNotificationPlugin(registrar);
 
       MediaNotificationPlugin.channel = new MethodChannel(registrar.messenger(), "media_notification");
       MediaNotificationPlugin.channel.setMethodCallHandler(new MediaNotificationPlugin(registrar));
-    }
+    }*/
 
     @Override
     public void onDetachedFromEngine( FlutterPluginBinding binding) {
@@ -88,12 +88,13 @@ public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler
           int importance = NotificationManager.IMPORTANCE_DEFAULT;
           NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_ID, importance);
           channel.enableVibration(false);
+
           channel.setSound(null, null);
-          NotificationManager notificationManager = registrar.context().getSystemService(NotificationManager.class);
+          NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
           notificationManager.createNotificationChannel(channel);
       }
 
-      nPanel = new NotificationPanel(registrar.context(), title, author, play);
+      nPanel = new NotificationPanel(context, title, author, play);
   }
 
   private void hide() {
