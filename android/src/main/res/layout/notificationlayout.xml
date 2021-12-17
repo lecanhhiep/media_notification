@@ -8,7 +8,8 @@
         android:paddingRight="5dp"
         android:textColor="#000"
         android:id="@+id/title"
-        android:text="dfadsf  sdfadsf adsfadsf asdfad asdfadsf dafio adfouiasd fadfasdu fuads yfiadsf "
+        android:gravity="center"
+        android:text=" "
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
@@ -46,11 +47,11 @@
         />
     <ImageView
         android:id="@+id/toggle"
-        android:layout_width="40dp"
+        android:layout_width="50dp"
         android:layout_height="fill_parent"
         android:layout_toLeftOf="@id/next"
-        android:paddingRight="5dp"
-        android:paddingLeft="5dp"
+        android:paddingRight="7dp"
+        android:paddingLeft="7dp"
         />
     <ImageView
         android:id="@+id/next"
@@ -66,7 +67,7 @@
         android:layout_width="30dp"
         android:layout_height="fill_parent"
         android:layout_alignParentRight="true"
-        android:padding="6dp"
+        android:paddingLeft="10dp"
         android:src="@drawable/android_close_icon"
         />
 </RelativeLayout>
