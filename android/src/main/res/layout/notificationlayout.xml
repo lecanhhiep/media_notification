@@ -7,19 +7,21 @@
         android:textSize="15dp"
         android:textColor="#000"
         android:id="@+id/title"
+        android:text="dfadsf asdfad asdfadsf "
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="2dp"
-        android:singleLine="true"
+        android:singleLine="false"
         android:ellipsize="end"
-        android:maxLines="1"
+        android:maxLines="2"
         />
     <TextView
         android:textSize="14dp"
         android:textColor="#838383"
         android:id="@+id/author"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -35,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:layout_toLeftOf="@id/toggle"
-        android:padding="4dp"
+        android:padding="6dp"
         android:paddingRight="0dp"
         android:src="@drawable/baseline_skip_previous_black_36"
         />
@@ -52,7 +54,16 @@
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:layout_alignParentRight="true"
-        android:padding="4dp"
+        android:padding="6dp"
         android:src="@drawable/baseline_skip_next_black_36"
+        />
+
+    <ImageView
+        android:id="@+id/close"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:padding="6dp"
+        android:src="@drawable/android_close_icon"
         />
 </RelativeLayout>
