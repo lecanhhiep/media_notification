@@ -8,8 +8,8 @@
         android:paddingRight="5dp"
         android:textColor="#000"
         android:id="@+id/title"
-        android:gravity="center"
-        android:text=" "
+        android:gravity="center_vertical"
+        android:text=""
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
@@ -47,11 +47,11 @@
         />
     <ImageView
         android:id="@+id/toggle"
-        android:layout_width="50dp"
+        android:layout_width="54dp"
         android:layout_height="fill_parent"
         android:layout_toLeftOf="@id/next"
-        android:paddingRight="7dp"
-        android:paddingLeft="7dp"
+        android:paddingRight="8dp"
+        android:paddingLeft="8dp"
         />
     <ImageView
         android:id="@+id/next"
