@@ -16,6 +16,9 @@ public class NotificationReturnSlot extends BroadcastReceiver {
             case "next":
                 MediaNotificationPlugin.callEvent("next");
                 break;
+            case "close":
+                MediaNotificationPlugin.callEvent("close");
+                break;
             case "toggle":
                 String title = intent.getStringExtra("title");
                 String author = intent.getStringExtra("author");

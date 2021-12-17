@@ -73,6 +73,11 @@ public class NotificationPanel {
         PendingIntent pendingNextIntent = PendingIntent.getBroadcast(parent, 0, nextIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         view.setOnClickPendingIntent(R.id.next, pendingNextIntent);
 
+        Intent closeIntent = new Intent(parent, NotificationReturnSlot.class)
+                .setAction("close");
+        PendingIntent pendingCloseIntent = PendingIntent.getBroadcast(parent, 0, closeIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        view.setOnClickPendingIntent(R.id.close, pendingCloseIntent);
+
         // Назад
         Intent prevIntent = new Intent(parent, NotificationReturnSlot.class)
                 .setAction("prev");
