@@ -4,7 +4,8 @@
     android:layout_height="64dp"
     android:padding="10dp">
     <TextView
-        android:textSize="15dp"
+        android:textSize="12dp"
+        android:paddingLeft="5dp"
         android:textColor="#000"
         android:id="@+id/title"
         android:text="dfadsf  sdfadsf adsfadsf asdfad asdfadsf dafio adfouiasd fadfasdu fuads yfiadsf "
@@ -62,7 +63,7 @@
 
     <ImageView
         android:id="@+id/close"
-        android:layout_width="wrap_content"
+        android:layout_width="20dp"
         android:layout_height="fill_parent"
         android:layout_alignParentRight="true"
         android:padding="6dp"
