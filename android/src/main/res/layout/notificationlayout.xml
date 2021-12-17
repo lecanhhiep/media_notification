@@ -10,7 +10,7 @@
         android:id="@+id/title"
         android:text="dfadsf  sdfadsf adsfadsf asdfad asdfadsf dafio adfouiasd fadfasdu fuads yfiadsf "
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="9dp"
         android:layout_marginTop="2dp"
@@ -46,11 +46,11 @@
         />
     <ImageView
         android:id="@+id/toggle"
-        android:layout_width="wrap_content"
+        android:layout_width="40dp"
         android:layout_height="fill_parent"
         android:layout_toLeftOf="@id/next"
-        android:padding="3dp"
-        android:paddingRight="0dp"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
         />
     <ImageView
         android:id="@+id/next"
