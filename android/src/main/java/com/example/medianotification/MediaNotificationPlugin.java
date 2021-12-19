@@ -102,18 +102,7 @@ public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler
             nPanel.notificationCancel();
         } catch(Throwable t) {
             t.printStackTrace();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                int importance = NotificationManager.IMPORTANCE_DEFAULT;
-                NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_ID, importance);
-                channel.enableVibration(false);
-
-                channel.setSound(null, null);
-                NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
-                notificationManager.createNotificationChannel(channel);
-            }
-
-            nPanel = new NotificationPanel(context, "", "", "");
-            nPanel.notificationCancel();
+            
         }
   }
 }
