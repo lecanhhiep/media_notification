@@ -97,7 +97,7 @@ public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler
       nPanel = new NotificationPanel(context, title, author, play);
   }
 
-  private void hide() {
+  public static void hide() {
       nPanel.notificationCancel();
   }
 }
