@@ -102,7 +102,7 @@ public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler
             nPanel.notificationCancel();
         } catch(Throwable t) {
             t.printStackTrace();
-            
+
         }
   }
 }

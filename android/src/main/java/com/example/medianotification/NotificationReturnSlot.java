@@ -1,5 +1,6 @@
 package com.example.medianotification;
 
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -52,7 +53,9 @@ public class NotificationReturnSlot extends BroadcastReceiver {
                 Intent launchIntent = pm.getLaunchIntentForPackage(packageName);
                 launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(launchIntent);
-                MediaNotificationPlugin.hide();
+                NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+                mNotificationManager.cancel(1);
+//                MediaNotificationPlugin.hide();
             } catch (Throwable t1) {
                 t.printStackTrace();
                 Log.e("cant''t't ai website", t1.getMessage());
