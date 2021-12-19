@@ -43,7 +43,6 @@ public class NotificationReturnSlot extends BroadcastReceiver {
         }catch(Throwable t) {
             try {
                 t.printStackTrace();
-                MediaNotificationPlugin.hide();
                 Log.e("cant' 1 ai website", t.getMessage());
                 Intent iii = new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
                 context.sendBroadcast(iii);
@@ -53,6 +52,7 @@ public class NotificationReturnSlot extends BroadcastReceiver {
                 Intent launchIntent = pm.getLaunchIntentForPackage(packageName);
                 launchIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(launchIntent);
+                MediaNotificationPlugin.hide();
             } catch (Throwable t1) {
                 t.printStackTrace();
                 Log.e("cant''t't ai website", t1.getMessage());
