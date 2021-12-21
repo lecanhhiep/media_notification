@@ -34,7 +34,7 @@ public class NotificationPanel {
 
         nBuilder = new NotificationCompat.Builder(parent, "media_notification")
                 .setSmallIcon(R.drawable.ic_stat_music_note)
-                .setPriority(Notification.PRIORITY_HIGH)
+                .setPriority(Notification.PRIORITY_MAX)
                 .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
                 .setOngoing(this.play)
                 .setOnlyAlertOnce(true)

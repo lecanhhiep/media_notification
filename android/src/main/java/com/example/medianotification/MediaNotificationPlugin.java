@@ -86,7 +86,7 @@ public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler
   public static void show(String title, String author, boolean play) {
 
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+            int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_ID, importance);
             channel.enableVibration(false);
 
