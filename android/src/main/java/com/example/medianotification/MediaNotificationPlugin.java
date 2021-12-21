@@ -84,22 +84,27 @@ public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler
   }
 
   public static void show(String title, String author, boolean play) {
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-          int importance = NotificationManager.IMPORTANCE_DEFAULT;
-          NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_ID, importance);
-          channel.enableVibration(false);
+        if(nPanel != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                int importance = NotificationManager.IMPORTANCE_DEFAULT;
+                NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_ID, importance);
+                channel.enableVibration(false);
 
-          channel.setSound(null, null);
-          NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
-          notificationManager.createNotificationChannel(channel);
-      }
+                channel.setSound(null, null);
+                NotificationManager notificationManager = context.getSystemService(NotificationManager.class);
+                notificationManager.createNotificationChannel(channel);
+            }
 
-      nPanel = new NotificationPanel(context, title, author, play);
+            nPanel = new NotificationPanel(context, title, author, play);
+        } else {
+            nPanel.updateTitle(title);
+        }
   }
 
   public static void hide() {
         try {
             nPanel.notificationCancel();
+            nPanel = null;
         } catch(Throwable t) {
             t.printStackTrace();
 

@@ -22,6 +22,10 @@ public class NotificationPanel {
     private String author;
     private boolean play;
 
+    public void updateTitle(String title) {
+        remoteView.setTextViewText(R.id.title, title);
+
+    }
     public NotificationPanel(Context parent, String title, String author, boolean play) {
         this.parent = parent;
         this.title = title;
