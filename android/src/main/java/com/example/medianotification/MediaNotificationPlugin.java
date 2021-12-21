@@ -9,13 +9,17 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.net.wifi.WifiManager;
 import android.os.Build;
+import android.os.PowerManager;
 
 
 /** MediaNotificationPlugin */
 public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler {
     private static final String CHANNEL_ID = "media_notification";
 
+    private static PowerManager.WakeLock powerLock = null;
+    private static WifiManager.WifiLock wifiLock = null;
     private static NotificationPanel nPanel;
     private static MethodChannel channel;
     private static Context context;
@@ -84,7 +88,16 @@ public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler
   }
 
   public static void show(String title, String author, boolean play) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+
+      PowerManager pm = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
+      powerLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "AI Webiste Reader:m");
+      powerLock.acquire();
+
+      WifiManager wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+      wifiLock = wm.createWifiLock(WifiManager.WIFI_MODE_FULL_HIGH_PERF, "TAG");
+      wifiLock.acquire();
+
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 int importance = NotificationManager.IMPORTANCE_DEFAULT;
                 NotificationChannel channel = new NotificationChannel(CHANNEL_ID, CHANNEL_ID, importance);
                 channel.enableVibration(false);
@@ -100,6 +113,13 @@ public class MediaNotificationPlugin implements FlutterPlugin, MethodCallHandler
 
   public static void hide() {
         try {
+
+            if(powerLock != null) {
+                powerLock.release();
+            }
+            if(wifiLock != null) {
+                wifiLock.release();
+            }
             nPanel.notificationCancel();
         } catch(Throwable t) {
             t.printStackTrace();
